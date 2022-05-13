@@ -101,10 +101,11 @@ function FindBeer() {
         </section>
 
         <hr/>
+        {!beerBarList.length && <p>가게가 존재하지 않아요😥</p>}
         {beerBarList && beerBarList.map(({place_name, place_url, phone, distance, address_name }, idx) => {
               return (
                 <article className="card" key={idx}>
-                  <p className="card--title" href={place_url || null}>{place_name}</p>
+                  <p className="card--title" href={place_url}>{place_name}</p>
                   <section className="card--detail">
                     <p className="card--phone">{phone || "번호 없음"}</p>
                     {isCheck && <p className="card--address">{distance}m</p>}

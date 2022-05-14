@@ -24,6 +24,7 @@ function FindBeer() {
         }
       }
     );
+
     setBeerBarList(result.data.documents); //documents 객체 넣어주기 
   }
 

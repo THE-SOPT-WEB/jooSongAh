@@ -50,9 +50,7 @@ function FindBeer() {
     if(isCheck){
       return 근처맥주집가져오기();
     }else{
-      //사용자입력가져오기();
       특정지역맥주집가져오기(userInputLocation.current.value);
-      console.log(userInputLocation);
     }
   }
 
@@ -79,9 +77,6 @@ function FindBeer() {
     const result = await getLocation();
     return result;
   }
-  // useEffect(() => {
-  //   console.log("beerBarList",beerBarList);
-  // }, [beerBarList]);
 
   useEffect(() => {
     
@@ -90,12 +85,6 @@ function FindBeer() {
   function checkClickHandler (){
     setIsCheck(prev=>!prev);
   }
-
-  // const 사용자입력가져오기=(input)=>{
-  //   console.log(input.target.value);
-  //   userInputLocation.current.push(input.target.value);
-  //   console.log(">>>>>>>",userInputLocation);
-  // }
 
   return (
     <div className="find-beer">
@@ -117,7 +106,7 @@ function FindBeer() {
         </section>
 
         <hr/>
-        <p disabled={isLoading}>로딩중...</p>
+        {/* <p disabled={isLoading}>로딩중...</p> */}
         {!beerBarList.length && <p>가게가 존재하지 않아요😥</p>}
         {beerBarList && beerBarList.map(({place_name, place_url, phone, distance, address_name }, idx) => {
               return (

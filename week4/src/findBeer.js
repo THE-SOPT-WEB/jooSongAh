@@ -5,7 +5,9 @@ import axios from "axios"
 
 function FindBeer() {
   const [beerBarList, setBeerBarList]=useState([]);
-  const [isCheck,setIsCheck]=useState(false); //near에 체크가 되어있는지 
+  const [isCheck,setIsCheck]=useState(false); //near에 체크가 되어있는지
+  const [isLoading, setIsLoading]=useState(false);
+  const userInputLocation = useRef([]);
 
   async function 근처맥주집가져오기() {
     const{x,y}=await 위치가져오기();
@@ -43,11 +45,14 @@ function FindBeer() {
   setBeerBarList(result.data.documents); //documents 객체 넣어주기 
 };
 
-  function handleClick(){ //검색버튼이 클릭되었을 경우 
+  function handleClick(){ //검색버튼이 클릭되었을 경우;
+    setIsLoading(prev=>!prev);
     if(isCheck){
-      근처맥주집가져오기();
+      return 근처맥주집가져오기();
     }else{
-      특정지역맥주집가져오기(document.getElementById("textbox").value);
+      //사용자입력가져오기();
+      특정지역맥주집가져오기(userInputLocation.current.value);
+      console.log(userInputLocation);
     }
   }
 
@@ -74,13 +79,23 @@ function FindBeer() {
     const result = await getLocation();
     return result;
   }
+  // useEffect(() => {
+  //   console.log("beerBarList",beerBarList);
+  // }, [beerBarList]);
+
   useEffect(() => {
-    console.log("beerBarList",beerBarList);
-  }, [beerBarList]);
+    
+  }, [isLoading]);
 
   function checkClickHandler (){
     setIsCheck(prev=>!prev);
   }
+
+  // const 사용자입력가져오기=(input)=>{
+  //   console.log(input.target.value);
+  //   userInputLocation.current.push(input.target.value);
+  //   console.log(">>>>>>>",userInputLocation);
+  // }
 
   return (
     <div className="find-beer">
@@ -96,12 +111,13 @@ function FindBeer() {
           </form>
           <form className="search--input-location">
             <strong>원하는 지역으로 볼게요!</strong>
-            <input id="textbox" type="text" placeholder='지역을 입력해주세요' disabled={isCheck} />
+            <input id="textbox" type="text" placeholder='지역을 입력해주세요' ref={userInputLocation} disabled={isCheck} />
           </form>
           <button className="search-button" onClick={()=>handleClick()}>검색하기</button>
         </section>
 
         <hr/>
+        <p disabled={isLoading}>로딩중...</p>
         {!beerBarList.length && <p>가게가 존재하지 않아요😥</p>}
         {beerBarList && beerBarList.map(({place_name, place_url, phone, distance, address_name }, idx) => {
               return (
@@ -116,7 +132,6 @@ function FindBeer() {
               );
             }
           )}
-
       </main>
     </div>
   );

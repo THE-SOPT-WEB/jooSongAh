@@ -1,0 +1,103 @@
+.img--wrapper{
+    position: relative;
+}
+
+.result-page--main{
+    width: 100%;
+    justify-content: center;
+    margin: 0px;
+    background-color: white;
+}
+
+.crown-img{
+    height:100px;
+    margin:0px;
+    padding:0px;
+    position: absolute;
+    left: 40%;
+    top:-10%;
+    transform-origin: 50% 0%;
+    animation-name: shake;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.5s;
+    display:flex;
+}
+
+.winner-img{
+    height: 400px;
+    margin: 20px;
+}
+
+.linkStyle {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.button--wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.replay-button{
+    font-family: 'Jua', sans-serif;
+    justify-content: center;
+    background-color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    border: 8px;
+    border-radius: 8px;
+    border: solid 2px grey;
+    transition:all 0.9s, color 0.3;
+    cursor: pointer;
+}
+
+.cancel-button{
+    font-family: 'Jua', sans-serif;
+    justify-content: center;
+    background-color: whitesmoke;
+    font-size: 16px;
+    padding: 10px;
+    border: 8px;
+    display:flex;
+    border-radius: 8px;
+    border: solid 2px grey;
+    transition:all 0.9s, color 0.3;
+    cursor: pointer;
+}
+
+.cancel-button:hover , .replay-button:hover{
+    box-shadow:200px 0 0 0 rgba(0,0,0,0.5) inset;
+}
+
+@keyframes shake{ 
+    0%{
+        transform: rotate(0deg);
+    }
+    10%{
+        transform: rotate(45deg);
+    }
+    20%{
+        transform: rotate(-45deg);
+    }
+    30%{
+        transform: rotate(30deg);
+    }
+    40%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    60%{
+        transform: rotate(-10deg);
+    }
+    70%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+

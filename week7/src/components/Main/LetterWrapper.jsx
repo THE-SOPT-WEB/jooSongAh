@@ -1,5 +1,3 @@
-function CardWrapper() {
+export default function CardWrapper() {
   return <></>;
 }
-
-export default CardWrapper;

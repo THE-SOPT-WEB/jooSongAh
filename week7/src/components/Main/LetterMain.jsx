@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 
-function Main() {
+export default function Main() {
   return (
     <>
       <Stheader>
@@ -21,5 +21,3 @@ function Main() {
 const Stheader = styled.section`
   display: flex;
 `;
-
-export default Main;

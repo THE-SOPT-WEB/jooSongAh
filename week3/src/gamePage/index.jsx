@@ -57,7 +57,7 @@ function GamePage(){
                         const{img,name}=content;
                         return(
                             <div className="content" onClick={() => 이긴놈찾기(content)} key={content.name}>
-                                <img className="content-img" src={img}/>
+                                <img className="content-img" src={img} alt=""/>
                                 <p className="content-name">{name}</p>
                             </div>
                         );

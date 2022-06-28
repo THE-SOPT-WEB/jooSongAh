@@ -1,5 +1,5 @@
 // import WriteLetter from "../WriteLetter/writeLetter";
-import CardWrapper from "./LetterWrapper";
+import LetterWrapper from "./LetterContent";
 import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ export default function Main() {
           <button>편지쓰러가기</button>
         </Link>
       </Stheader>
-      <CardWrapper />
+      <LetterWrapper />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import MainPage from "../Main/LetterMain";
-import EditLetterPage from "../Main/EditLetter";
+import EditLetterPage from "../Edit/EditLetter";
 import WriteLetterPage from "../WriteLetter/WriteLetter";
 
 export default function Router() {
